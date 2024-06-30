@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Hello World!")
+
+        function getComputerChoice() {
+            let roll = Math.random()
+            console.log(roll)
+            let choice;
+
+            if (roll <= 0.33) {
+                choice = "Rock"
+            }
+            if (roll > 0.33 && roll <= 0.66) {
+                choice = "Paper"
+            }
+            if (roll > 0.66) {
+                choice = "Scissors"
+            }
+            return choice;
+
+        }
+
+        console.log(getComputerChoice())
+    </script>
+</body>
+</html>
