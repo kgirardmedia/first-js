@@ -48,7 +48,7 @@ computerScoreCard.append(computerScoreUI);
 //Initialize winner message
 const winnerMessage = document.createElement("div");
 winnerMessage.classList.add("winnerMessage");
-winnerMessage.textContent = "fuck";
+winnerMessage.textContent = "";
 gameWindow.insertBefore(winnerMessage, document.querySelector(".buttons"));
 
 function humanScores() {
