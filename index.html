@@ -4,84 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="ui.js" defer></script>
 </head>
 <body>
-    <script>
-        console.log("Hello World!")
-
-        function getComputerChoice() {
-            let roll = Math.random()
-            let choice;
-
-            if (roll <= 0.33) {
-                choice = "rock"
-            }
-            if (roll > 0.33 && roll <= 0.66) {
-                choice = "paper"
-            }
-            if (roll > 0.66) {
-                choice = "scissors"
-            }
-            return choice;
-
-        }
-
-        function getHumanChoice() {
-            choice = prompt("Enter your choice");
-            formattedChoice = choice.toLowerCase();
-            return formattedChoice;
-        }
-
-        let humanScore = 0;
-        let computerScore = 0;
-        function playRound (human, computer) {
-            console.log(human);
-            console.log(computer)
-            humanChoice = human
-            computerChoice = computer
-
-            if(humanChoice == computerChoice) {
-                console.log("It's a tie!")
-            }
-
-            if (humanChoice == "rock") {
-                if (computerChoice == "paper") {
-                    computerScore++;
-                    console.log("You lose!");
-                }
-                if (computerChoice == "scissors") {
-                    humanScore++;
-                    console.log("You win!");
-                }
-            }
-            if (humanChoice == "paper") {
-                if (computerChoice == "rock") {
-                    humanScore++;
-                    console.log("You win!");
-                }
-                if (computerChoice == "scissors") {
-                    computerScore++;
-                    console.log("You lose!");
-                }
-            }
-            if (humanChoice == "scissors") {
-                if (computerChoice == "rock") {
-                    computerScore++;
-                    console.log("You lose!");
-                }
-                if (computerChoice == "paper") {
-                    humanScore++;
-                    console.log("You win!");
-                }
-            }
-            console.log ("Human: " + humanScore + " Computer: " + computerScore);
-        }
-        function playGame() {
-            while (humanScore < 2 && computerScore < 2) {
-                playRound(getHumanChoice(), getComputerChoice());
-            }
-        }
-        playGame();
-    </script>
+    <div class="game">
+        <div class="score">
+            <div class="score player">
+                <div class="player">Player:</div>
+            </div>
+            <div class="score computer">
+                <div class="computer">Computer:</div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+    </div>
 </body>
 </html>
