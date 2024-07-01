@@ -24,6 +24,9 @@ function getComputerChoice() {
 
 }
 
+
+const gameWindow = document.querySelector(".game");
+console.log(gameWindow);
 //Initialize human score and UI
 let humanScore = 0;
 const humanScoreUI = document.createElement("div");
@@ -42,18 +45,27 @@ computerScoreUI.textContent = computerScore;
 computerScoreCard.append(computerScoreUI);
 
 
+//Initialize winner message
+const winnerMessage = document.createElement("div");
+winnerMessage.classList.add("winnerMessage");
+winnerMessage.textContent = "fuck";
+gameWindow.insertBefore(winnerMessage, document.querySelector(".buttons"));
+
 function humanScores() {
     humanScoreUI.textContent = humanScore;
+    winnerMessage.textContent = "Player Wins!";
 }
 
 function computerScores() {
     computerScoreUI.textContent = computerScore;
+    winnerMessage.textContent = "Computer Wins!";
 }
 function playRound (human, computer) {
     humanChoice = human
     computerChoice = computer
 
     if(humanChoice == computerChoice) {
+        winnerMessage.textContent = "It's a tie!";
     }
 
     if (humanChoice == "rock") {

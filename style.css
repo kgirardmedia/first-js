@@ -43,3 +43,9 @@
 button {
     padding: 20px 40px;
 }
+
+.winnerMessage {
+    display: flex;
+    justify-content: center;
+    font-size: 48px;
+}
