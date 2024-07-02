@@ -3,7 +3,10 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        playRound(button.id, getComputerChoice());
+        playGame(button.id);
+        if (button.id == "reset") {
+            resetGame();
+        }
     });
 });
 
@@ -53,12 +56,20 @@ gameWindow.insertBefore(winnerMessage, document.querySelector(".buttons"));
 
 function humanScores() {
     humanScoreUI.textContent = humanScore;
-    winnerMessage.textContent = "Player Wins!";
+    if (humanScore < 5 && computerScore < 5) {
+        winnerMessage.textContent = "Player played " + humanChoice + " and beat computer, who played " + computerChoice + "!";
+    } else {
+        winnerMessage.textContent = "PLAYER WINS THE GAME!"
+    }
 }
 
 function computerScores() {
     computerScoreUI.textContent = computerScore;
-    winnerMessage.textContent = "Computer Wins!";
+    if (humanScore < 5 && computerScore < 5) {
+        winnerMessage.textContent = "Computer played " + computerChoice + " and beat player, who played " + humanChoice + "!";
+    } else {
+        winnerMessage.textContent = "COMPUTER WINS THE GAME!"
+    }
 }
 function playRound (human, computer) {
     humanChoice = human
@@ -98,5 +109,29 @@ function playRound (human, computer) {
             humanScores();
         }
     }
+
+    if (humanScore == 5 || computerScore == 5) {
+        playAgain();
+    }
     console.log ("Human: " + humanScore + " Computer: " + computerScore);
+}
+
+function playGame(button) {
+    if (humanScore < 5 && computerScore < 5) {
+        playRound(button, getComputerChoice());
+    }
+}
+
+function playAgain() {
+    let reset = document.getElementById("reset");
+    reset.style.display = "block";
+}
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    humanScoreUI.textContent = humanScore;
+    computerScoreUI.textContent = computerScore;
+    winnerMessage.textContent = "";
+    let reset = document.getElementById("reset");
+    reset.style.display = "none";
 }

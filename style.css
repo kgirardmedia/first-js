@@ -18,7 +18,7 @@
 .score.computer {
     font-weight: bold;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     border: 3px;
     border-style: solid;
     border-radius: 10px;
@@ -38,6 +38,10 @@
     justify-content: center;
     padding: 20px;
     gap: 20px;
+}
+
+#reset {
+    display: none;
 }
 
 button {
